@@ -7,9 +7,10 @@ npm run build
 cd dist
 
 git init
+git branch -m master main
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:FramtidsGustaf/calculator.git main:gh-pages
+git push -f git@github.com:framtidsgustaf/calculator.git main:gh-pages
 
 cd -
