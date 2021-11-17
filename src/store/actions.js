@@ -5,15 +5,22 @@ export default {
   setSecondInput({ commit, state }, payload) {
     commit('setSecondInput', state.secondInput + payload);
   },
+  setInput({ state, dispatch }, payload) {
+    if (state.isFirstInput) dispatch('setFirstInput', payload);
+    else dispatch('setSecondInput', payload)
+  },
   setIsFirstInput({ commit }, payload) {
     commit('setIsFirstInput', payload);
   },
   setAction({ commit }, payload) {
     commit('setAction', payload);
   },
-  equals({ commit, state },) {
+  equals({ commit, state }, final) {
     if (!state.secondInput) return;
-
+    commit('setIsFinal', false);
+    if (final) {
+      commit('setIsFinal', true);
+    }
     const firstInput = +state.firstInput;
     const secondInput = +state.secondInput;
     const { action } = state;

@@ -14,6 +14,9 @@ export default {
   setResult(state, payload) {
     state.result = payload;
   },
+  setIsFinal(state, payload) {
+    state.isFinal = payload;
+  },
   resetResult(state) {
     state.result = 0;
   },
@@ -23,5 +26,6 @@ export default {
     state.result = 0;
     state.action = null;
     state.isFirstInput = true;
+    state.isFinal = false;
   },
 };

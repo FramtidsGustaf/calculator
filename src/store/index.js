@@ -9,9 +9,9 @@ export default createStore({
   state: {
     firstInput: '',
     secondInput: '',
-    result: 0,
     action: null,
-    isFirstInput: true
+    isFirstInput: true,
+    isFinal: false,
   },
   mutations,
   actions,
