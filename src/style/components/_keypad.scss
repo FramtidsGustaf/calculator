@@ -1,0 +1,26 @@
+.keypad {
+  height: 47.4rem;
+  width: 36.5rem;
+  border-radius: 5px;
+  @include gradient(bottom, keypad);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include respond(small) {
+    margin-bottom: -7rem;
+  }
+}
+
+.grid-top {
+  display: grid;
+  grid-template-columns: repeat(4, min-content);
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+.grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  gap: 2rem;
+}

@@ -1,0 +1,59 @@
+@mixin gradient($orientation, $type: null) {
+  $top-color: $color-light-grey-1;
+  $bottom-color: $color-light-grey-2;
+
+  @if ($type == dark) {
+    $top-color: $color-dark-grey-1;
+    $bottom-color: $color-dark-grey-2;
+  }
+
+  @if ($type == vibrant) {
+    $top-color: $color-orange-1;
+    $bottom-color: $color-orange-2;
+  }
+
+  @if ($type == keypad) {
+    $top-color: $color-keypad-1;
+    $bottom-color: $color-keypad-2;
+  }
+
+  @if ($orientation == bottom) {
+    background-image: linear-gradient(185deg, $top-color, $bottom-color);
+  } @else {
+    background-image: linear-gradient(to top, $top-color, $bottom-color);
+  }
+}
+
+@mixin buttonSide($type: null) {
+  $side-color: $color-light-grey-3;
+
+  @if ($type == dark) {
+    $side-color: $color-dark-grey-3;
+  }
+  @if ($type == vibrant) {
+    $side-color: $color-orange-3;
+  }
+
+  box-shadow: 0 4px 1px $side-color;
+}
+
+@mixin absoluteCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+$breakpoints: (
+  large: '53.125em',
+  medium: '46.875em',
+  small: '25em',
+  smallest: '20.625em',
+);
+
+@mixin respond($key) {
+  $size: map-get($breakpoints, $key);
+  @media only screen and(max-width: $size) {
+    @content;
+  }
+}

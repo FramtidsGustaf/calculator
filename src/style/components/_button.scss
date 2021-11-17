@@ -1,0 +1,60 @@
+.btn {
+  height: 6.3rem;
+  width: 6.3rem;
+  border: none;
+  border-radius: 7px;
+  @include gradient(bottom);
+  position: relative;
+  transform: translate(0);
+  cursor: pointer;
+  @include buttonSide();
+  transition: all 0.1s;
+  font-size: 3rem;
+  font-family: $font-button;
+
+  &--dark {
+    @include gradient(bottom, dark);
+    @include buttonSide(dark);
+  }
+
+  &--vibrant {
+    @include gradient(bottom, vibrant);
+    @include buttonSide(vibrant);
+  }
+
+  &--long {
+    width: 11.1rem;
+  }
+
+  &__circle {
+    height: 5.3rem;
+    width: 5.3rem;
+    border-radius: 100%;
+    @include gradient(top);
+    @include absoluteCenter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    &--dark {
+      @include gradient(top, dark);
+    }
+
+    &--vibrant {
+      @include gradient(top, vibrant);
+    }
+
+    &--long {
+      height: 5.3rem;
+      width: 10.2rem;
+      border-radius: 2.5rem;
+    }
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0;
+    filter: brightness(90%);
+  }
+}
