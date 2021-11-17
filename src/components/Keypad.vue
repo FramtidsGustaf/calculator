@@ -13,9 +13,9 @@
       <Button @click="handleInput(5)">5</Button>
       <Button @click="handleInput(6)">6</Button>
       <Button dark @click="handleAction('subtract')">&minus;</Button>
-      <Button @click="handleInput(3)">3</Button>
-      <Button @click="handleInput(2)">2</Button>
       <Button @click="handleInput(1)">1</Button>
+      <Button @click="handleInput(2)">2</Button>
+      <Button @click="handleInput(3)">3</Button>
       <Button dark @click="handleAction('add')">&plus;</Button>
     </div>
     <div class="grid-bottom">
