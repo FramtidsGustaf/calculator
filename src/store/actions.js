@@ -23,10 +23,9 @@ export default {
   setAction({ commit }, payload) {
     commit('setAction', payload);
   },
-  equals({ commit, state, dispatch }, final) {
+  equals({ commit, state }, final) {
     if (!state.secondInput) return;
 
-    dispatch('setIsFirstInput', false);
     commit('setIsFinal', false);
 
     if (final) {
