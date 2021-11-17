@@ -5,9 +5,18 @@ export default {
   setSecondInput({ commit, state }, payload) {
     commit('setSecondInput', state.secondInput + payload);
   },
-  setInput({ state, dispatch }, payload) {
-    if (state.isFirstInput) dispatch('setFirstInput', payload);
-    else dispatch('setSecondInput', payload)
+  input({ state, dispatch }, payload) {
+    if (state.isFirstInput) {
+      dispatch('setFirstInput', payload);
+      return;
+    }
+    if (state.isFinal) {
+      dispatch('resetAll');
+      dispatch('setFirstInput', payload);
+      return;
+    }
+
+    dispatch('setSecondInput', payload);
   },
   setIsFirstInput({ commit }, payload) {
     commit('setIsFirstInput', payload);
@@ -15,8 +24,10 @@ export default {
   setAction({ commit }, payload) {
     commit('setAction', payload);
   },
-  equals({ commit, state }, final) {
+  equals({ commit, state, dispatch }, final) {
     if (!state.secondInput) return;
+    dispatch('setIsFirstInput', false);
+
     commit('setIsFinal', false);
     if (final) {
       commit('setIsFinal', true);
