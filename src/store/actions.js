@@ -15,7 +15,6 @@ export default {
       dispatch('setFirstInput', payload);
       return;
     }
-
     dispatch('setSecondInput', payload);
   },
   setIsFirstInput({ commit }, payload) {
@@ -26,12 +25,14 @@ export default {
   },
   equals({ commit, state, dispatch }, final) {
     if (!state.secondInput) return;
-    dispatch('setIsFirstInput', false);
 
+    dispatch('setIsFirstInput', false);
     commit('setIsFinal', false);
+
     if (final) {
       commit('setIsFinal', true);
     }
+
     const firstInput = +state.firstInput;
     const secondInput = +state.secondInput;
     const { action } = state;
